@@ -2,6 +2,7 @@
   "name": "sdgs-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://chichiboo123.github.io/SDGs-tory",
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
     "html2canvas": "^1.4.1",
