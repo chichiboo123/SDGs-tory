@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider>
       <AppStateProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
             <Header />
             <Routes>
