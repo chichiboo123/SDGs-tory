@@ -2,7 +2,7 @@
   "name": "sdgs-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chichiboo123.github.io/SDGs-tory",
+  "homepage": "https://sdgstory.chichiboo.link",
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
     "autoprefixer": "^10.4.27",
