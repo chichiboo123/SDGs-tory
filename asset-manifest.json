@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SDGs-tory/static/css/main.1fe677ab.css",
-    "main.js": "/SDGs-tory/static/js/main.cdd7506b.js",
-    "index.html": "/SDGs-tory/index.html",
-    "main.1fe677ab.css.map": "/SDGs-tory/static/css/main.1fe677ab.css.map",
-    "main.cdd7506b.js.map": "/SDGs-tory/static/js/main.cdd7506b.js.map"
+    "main.css": "/static/css/main.1fe677ab.css",
+    "main.js": "/static/js/main.9eac5123.js",
+    "index.html": "/index.html",
+    "main.1fe677ab.css.map": "/static/css/main.1fe677ab.css.map",
+    "main.9eac5123.js.map": "/static/js/main.9eac5123.js.map"
   },
   "entrypoints": [
     "static/css/main.1fe677ab.css",
-    "static/js/main.cdd7506b.js"
+    "static/js/main.9eac5123.js"
   ]
 }
