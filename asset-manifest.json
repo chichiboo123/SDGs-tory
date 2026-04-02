@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SDGs-tory/static/css/main.1127ac2d.css",
+    "main.js": "/SDGs-tory/static/js/main.cdd7506b.js",
+    "index.html": "/SDGs-tory/index.html",
+    "main.1127ac2d.css.map": "/SDGs-tory/static/css/main.1127ac2d.css.map",
+    "main.cdd7506b.js.map": "/SDGs-tory/static/js/main.cdd7506b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1127ac2d.css",
+    "static/js/main.cdd7506b.js"
+  ]
+}
