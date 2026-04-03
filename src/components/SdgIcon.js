@@ -3,7 +3,7 @@ import SDG_COLORS from '../data/sdgColors';
 
 export default function SdgIcon({ num, size = 'md', className = '' }) {
   const padded = String(num).padStart(2, '0');
-  const sizeClass = size === 'sm' ? 'w-10 h-10' : 'w-12 h-12';
+  const sizeClass = size === 'sm' ? 'w-10 h-10' : size === 'lg' ? 'w-14 h-14' : 'w-12 h-12';
 
   return (
     <>

@@ -59,15 +59,15 @@ export default function SdgSelectorPopup({ open, onClose, selectedGoals, onToggl
               <button
                 key={num}
                 onClick={() => onToggle(num)}
-                className={`relative p-3 rounded-xl border-2 text-left transition-all ${
+                className={`relative p-3 rounded-xl border-2 text-center transition-all ${
                   selected
                     ? 'border-current shadow-md scale-[1.02]'
                     : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                 }`}
                 style={selected ? { borderColor: SDG_COLORS[num], backgroundColor: SDG_COLORS[num] + '15' } : {}}
               >
-                <SdgIcon num={num} className="mb-2" />
-                <p className="text-xs font-medium text-gray-800 dark:text-gray-200 leading-tight">
+                <SdgIcon num={num} size="lg" className="mx-auto mb-2" />
+                <p className="text-xs font-medium text-gray-800 dark:text-gray-200 leading-tight text-center">
                   {t(`sdgs.${num}.name`)}
                 </p>
                 {selected && (

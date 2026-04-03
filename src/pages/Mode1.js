@@ -76,7 +76,7 @@ export default function Mode1() {
                     : {}
                 }
               >
-                <SdgIcon num={num} size="sm" className="mx-auto mb-1" />
+                <SdgIcon num={num} size="md" className="mx-auto mb-1.5" />
                 <p className="text-[10px] sm:text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight truncate">
                   {t(`sdgs.${num}.name`)}
                 </p>
