@@ -1,9 +1,14 @@
 import React, { useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import html2canvas from 'html2canvas';
+import { useAppState } from '../context/AppStateContext';
+import { buildShareUrl } from '../utils/shareState';
 
 export default function FloatingActionButton({ getExportText }) {
   const { t } = useTranslation();
+  const location = useLocation();
+  const { exportState } = useAppState();
   const [open, setOpen] = useState(false);
   const [toast, setToast] = useState('');
   const timerRef = useRef(null);
@@ -62,25 +67,26 @@ export default function FloatingActionButton({ getExportText }) {
   };
 
   const handleShare = async () => {
-    const text = getExportText();
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'SDGs-tory',
-          text: text.substring(0, 300),
-          url: window.location.href,
-        });
-      } catch {
-        /* user cancelled */
-      }
-    } else {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        showToast(t('common.copied'));
-      } catch {
-        /* fallback */
-      }
+    const state = exportState();
+    const link = buildShareUrl({
+      v: 1,
+      path: location.pathname,
+      ...state,
+    });
+
+    try {
+      await navigator.clipboard.writeText(link);
+      showToast(t('common.linkCopied'));
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = link;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast(t('common.linkCopied'));
     }
+
     setOpen(false);
   };
 
