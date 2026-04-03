@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import html2canvas from 'html2canvas';
 import { useAppState } from '../context/AppStateContext';
@@ -6,6 +7,7 @@ import { buildShareUrl } from '../utils/shareState';
 
 export default function FloatingActionButton({ getExportText }) {
   const { t } = useTranslation();
+  const location = useLocation();
   const { exportState } = useAppState();
   const [open, setOpen] = useState(false);
   const [toast, setToast] = useState('');
@@ -68,7 +70,7 @@ export default function FloatingActionButton({ getExportText }) {
     const state = exportState();
     const link = buildShareUrl({
       v: 1,
-      path: window.location.pathname,
+      path: location.pathname,
       ...state,
     });
 

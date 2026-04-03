@@ -27,9 +27,9 @@
     "summary": "One-sentence Summary",
     "summaryPlaceholder": "Summarize the plot in one sentence",
     "writeStory": "Write Your Story",
-    "writeStoryPlaceholder": "Write your story here...",
+    "writeStoryPlaceholder": "Write your story here",
     "sdgConnection": "SDGs Connection",
-    "sdgConnectionPlaceholder": "Explain how this goal connects to your story..."
+    "sdgConnectionPlaceholder": "Explain how this goal connects to your story"
   },
   "mode2": {
     "original": "Original Story",
@@ -43,9 +43,9 @@
     "summary": "One-sentence Summary",
     "summaryPlaceholder": "Summarize the plot in one sentence",
     "writeStory": "Story Writing Space",
-    "writeStoryPlaceholder": "Write your story here...",
+    "writeStoryPlaceholder": "Write your story here",
     "sdgConnect": "SDGs Connect",
-    "sdgConnectionPlaceholder": "Explain the connection between this goal and your story..."
+    "sdgConnectionPlaceholder": "Explain the connection between this goal and your story"
   },
   "common": {
     "back": "Back",

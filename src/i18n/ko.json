@@ -27,9 +27,9 @@
     "summary": "한 문장 줄거리",
     "summaryPlaceholder": "한 문장으로 줄거리를 요약하세요",
     "writeStory": "스토리 작성",
-    "writeStoryPlaceholder": "여기에 이야기를 써 보세요...",
+    "writeStoryPlaceholder": "여기에 이야기를 써 보세요",
     "sdgConnection": "SDGs 연계 설명",
-    "sdgConnectionPlaceholder": "이 목표와 스토리가 어떻게 연결되는지 설명해 주세요..."
+    "sdgConnectionPlaceholder": "이 목표와 스토리가 어떻게 연결되는지 설명해 주세요"
   },
   "mode2": {
     "original": "이야기 원작",
@@ -43,9 +43,9 @@
     "summary": "한 문장 줄거리",
     "summaryPlaceholder": "한 문장으로 줄거리를 요약하세요",
     "writeStory": "이야기 쓰는 공간",
-    "writeStoryPlaceholder": "여기에 이야기를 써 보세요...",
+    "writeStoryPlaceholder": "여기에 이야기를 써 보세요",
     "sdgConnect": "SDGs 연결",
-    "sdgConnectionPlaceholder": "이 목표와 이야기의 연결점을 설명하세요..."
+    "sdgConnectionPlaceholder": "이 목표와 이야기의 연결점을 설명하세요"
   },
   "common": {
     "back": "뒤로",

@@ -27,9 +27,9 @@
     "summary": "一文あらすじ",
     "summaryPlaceholder": "一文であらすじをまとめてください",
     "writeStory": "ストーリーを書く",
-    "writeStoryPlaceholder": "ここに物語を書いてみましょう...",
+    "writeStoryPlaceholder": "ここに物語を書いてみましょう",
     "sdgConnection": "SDGs連携説明",
-    "sdgConnectionPlaceholder": "この目標とストーリーがどう繋がるか説明してください..."
+    "sdgConnectionPlaceholder": "この目標とストーリーがどう繋がるか説明してください"
   },
   "mode2": {
     "original": "物語原作",
@@ -43,9 +43,9 @@
     "summary": "一文あらすじ",
     "summaryPlaceholder": "一文であらすじをまとめてください",
     "writeStory": "物語を書くスペース",
-    "writeStoryPlaceholder": "ここに物語を書いてみましょう...",
+    "writeStoryPlaceholder": "ここに物語を書いてみましょう",
     "sdgConnect": "SDGs接続",
-    "sdgConnectionPlaceholder": "この目標と物語の接点を説明してください..."
+    "sdgConnectionPlaceholder": "この目標と物語の接点を説明してください"
   },
   "common": {
     "back": "戻る",
