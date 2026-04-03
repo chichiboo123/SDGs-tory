@@ -26,7 +26,8 @@ export default function Mode1() {
     let text = `[${t('mode1.title')}]\n\n`;
     text += `${t('mode1.storyTitle')}: ${mode1.title}\n`;
     text += `${t('mode1.characters')}: ${mode1.characters}\n`;
-    text += `${t('mode1.setting')}: ${mode1.setting}\n`;
+    text += `${t('mode1.settingTime')}: ${mode1.settingTime}\n`;
+    text += `${t('mode1.settingPlace')}: ${mode1.settingPlace}\n`;
     text += `${t('mode1.summary')}: ${mode1.summary}\n\n`;
     text += `--- ${t('mode1.writeStory')} ---\n${mode1.story}\n\n`;
     if (mode1.selectedGoals.length > 0) {
@@ -56,6 +57,7 @@ export default function Mode1() {
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {goals.map((num) => {
             const selected = mode1.selectedGoals.includes(num);
+            const padded = String(num).padStart(2, '0');
             return (
               <button
                 key={num}
@@ -71,8 +73,17 @@ export default function Mode1() {
                     : {}
                 }
               >
+                <img
+                  src={`https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-${padded}.jpg`}
+                  alt={`SDG ${num}`}
+                  className="w-10 h-10 mx-auto rounded-lg mb-1 object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
                 <div
-                  className="w-8 h-8 mx-auto rounded-lg flex items-center justify-center text-white font-bold text-sm mb-1"
+                  className="w-10 h-10 mx-auto rounded-lg items-center justify-center text-white font-bold text-sm mb-1 hidden"
                   style={{ backgroundColor: SDG_COLORS[num] }}
                 >
                   {num}
@@ -85,9 +96,7 @@ export default function Mode1() {
                     className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-white"
                     style={{ backgroundColor: SDG_COLORS[num] }}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <span className="material-icons-outlined" style={{ fontSize: '14px' }}>check</span>
                   </div>
                 )}
               </button>
@@ -126,17 +135,31 @@ export default function Mode1() {
               className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              {t('mode1.setting')}
-            </label>
-            <input
-              type="text"
-              value={mode1.setting}
-              onChange={(e) => updateMode1({ setting: e.target.value })}
-              placeholder={t('mode1.settingPlaceholder')}
-              className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                {t('mode1.settingTime')}
+              </label>
+              <input
+                type="text"
+                value={mode1.settingTime}
+                onChange={(e) => updateMode1({ settingTime: e.target.value })}
+                placeholder={t('mode1.settingTimePlaceholder')}
+                className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                {t('mode1.settingPlace')}
+              </label>
+              <input
+                type="text"
+                value={mode1.settingPlace}
+                onChange={(e) => updateMode1({ settingPlace: e.target.value })}
+                placeholder={t('mode1.settingPlacePlaceholder')}
+                className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
+              />
+            </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

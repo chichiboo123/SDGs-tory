@@ -9,8 +9,8 @@ import SDG_COLORS from '../data/sdgColors';
 function StoryPanel({ side, data, updateSide, t }) {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const isLeft = side === 'left';
-  const label = isLeft ? t('mode2.original') : t('mode2.rewrite');
+  const label = side === 'left' ? t('mode2.original') : t('mode2.rewrite');
+  const prefix = 'mode2';
 
   const toggleGoal = (num) => {
     const selected = data.selectedGoals.includes(num)
@@ -32,45 +32,56 @@ function StoryPanel({ side, data, updateSide, t }) {
         </h3>
       </div>
 
-      {/* Input Fields - only show on left, blank space on right */}
-      <div className={`mb-4 space-y-3 ${!isLeft ? 'invisible' : ''}`}>
+      {/* Input Fields - both sides get these */}
+      <div className="mb-4 space-y-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            {t('mode2.characters')}
+            {t(`${prefix}.characters`)}
           </label>
           <input
             type="text"
-            value={isLeft ? data.characters : ''}
-            onChange={(e) => isLeft && updateSide({ characters: e.target.value })}
-            placeholder={t('mode2.charactersPlaceholder')}
+            value={data.characters}
+            onChange={(e) => updateSide({ characters: e.target.value })}
+            placeholder={t(`${prefix}.charactersPlaceholder`)}
             className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-            tabIndex={isLeft ? 0 : -1}
           />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              {t(`${prefix}.settingTime`)}
+            </label>
+            <input
+              type="text"
+              value={data.settingTime}
+              onChange={(e) => updateSide({ settingTime: e.target.value })}
+              placeholder={t(`${prefix}.settingTimePlaceholder`)}
+              className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              {t(`${prefix}.settingPlace`)}
+            </label>
+            <input
+              type="text"
+              value={data.settingPlace}
+              onChange={(e) => updateSide({ settingPlace: e.target.value })}
+              placeholder={t(`${prefix}.settingPlacePlaceholder`)}
+              className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
+            />
+          </div>
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            {t('mode2.setting')}
+            {t(`${prefix}.summary`)}
           </label>
           <input
             type="text"
-            value={isLeft ? data.setting : ''}
-            onChange={(e) => isLeft && updateSide({ setting: e.target.value })}
-            placeholder={t('mode2.settingPlaceholder')}
+            value={data.summary}
+            onChange={(e) => updateSide({ summary: e.target.value })}
+            placeholder={t(`${prefix}.summaryPlaceholder`)}
             className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-            tabIndex={isLeft ? 0 : -1}
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            {t('mode2.summary')}
-          </label>
-          <input
-            type="text"
-            value={isLeft ? data.summary : ''}
-            onChange={(e) => isLeft && updateSide({ summary: e.target.value })}
-            placeholder={t('mode2.summaryPlaceholder')}
-            className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-            tabIndex={isLeft ? 0 : -1}
           />
         </div>
       </div>
@@ -78,12 +89,12 @@ function StoryPanel({ side, data, updateSide, t }) {
       {/* Story textarea */}
       <div className="mb-4 flex-1">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          {t('mode2.writeStory')}
+          {t(`${prefix}.writeStory`)}
         </label>
         <textarea
           value={data.story}
           onChange={(e) => updateSide({ story: e.target.value })}
-          placeholder={t('mode2.writeStoryPlaceholder')}
+          placeholder={t(`${prefix}.writeStoryPlaceholder`)}
           className="w-full h-64 px-3 py-3 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-y transition-colors leading-relaxed"
         />
       </div>
@@ -94,10 +105,8 @@ function StoryPanel({ side, data, updateSide, t }) {
           onClick={() => setPopupOpen(true)}
           className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
-          </svg>
-          {t('mode2.sdgConnect')}
+          <span className="material-icons-outlined text-lg">add</span>
+          {t(`${prefix}.sdgConnect`)}
           {data.selectedGoals.length > 0 && (
             <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
               {data.selectedGoals.length}
@@ -126,7 +135,7 @@ function StoryPanel({ side, data, updateSide, t }) {
               selectedGoals={data.selectedGoals}
               connections={data.connections}
               onConnectionChange={handleConnectionChange}
-              placeholderKey="mode2.sdgConnectionPlaceholder"
+              placeholderKey={`${prefix}.sdgConnectionPlaceholder`}
             />
           </div>
         )}
@@ -149,7 +158,8 @@ export default function Mode2() {
   const getExportText = () => {
     let text = `[${t('mode2.original')}]\n`;
     text += `${t('mode2.characters')}: ${mode2.left.characters}\n`;
-    text += `${t('mode2.setting')}: ${mode2.left.setting}\n`;
+    text += `${t('mode2.settingTime')}: ${mode2.left.settingTime}\n`;
+    text += `${t('mode2.settingPlace')}: ${mode2.left.settingPlace}\n`;
     text += `${t('mode2.summary')}: ${mode2.left.summary}\n\n`;
     text += `--- ${t('mode2.writeStory')} ---\n${mode2.left.story}\n\n`;
     if (mode2.left.selectedGoals.length > 0) {
@@ -159,7 +169,11 @@ export default function Mode2() {
       });
     }
     text += `\n========================================\n\n`;
-    text += `[${t('mode2.rewrite')}]\n\n`;
+    text += `[${t('mode2.rewrite')}]\n`;
+    text += `${t('mode2.characters')}: ${mode2.right.characters}\n`;
+    text += `${t('mode2.settingTime')}: ${mode2.right.settingTime}\n`;
+    text += `${t('mode2.settingPlace')}: ${mode2.right.settingPlace}\n`;
+    text += `${t('mode2.summary')}: ${mode2.right.summary}\n\n`;
     text += `--- ${t('mode2.writeStory')} ---\n${mode2.right.story}\n\n`;
     if (mode2.right.selectedGoals.length > 0) {
       text += `--- ${t('mode2.sdgConnect')} ---\n`;

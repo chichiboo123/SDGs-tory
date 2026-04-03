@@ -6,7 +6,8 @@ const initialMode1 = {
   selectedGoals: [],
   title: '',
   characters: '',
-  setting: '',
+  settingTime: '',
+  settingPlace: '',
   summary: '',
   story: '',
   connections: {},
@@ -15,7 +16,8 @@ const initialMode1 = {
 const initialMode2 = {
   left: {
     characters: '',
-    setting: '',
+    settingTime: '',
+    settingPlace: '',
     summary: '',
     story: '',
     selectedGoals: [],
@@ -23,7 +25,8 @@ const initialMode2 = {
   },
   right: {
     characters: '',
-    setting: '',
+    settingTime: '',
+    settingPlace: '',
     summary: '',
     story: '',
     selectedGoals: [],

@@ -29,7 +29,7 @@ export default function Home() {
         >
           <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-100 dark:bg-indigo-900/50 rounded-bl-[4rem] -mr-2 -mt-2 group-hover:scale-110 transition-transform" />
           <div className="relative">
-            <div className="text-3xl mb-4">🎯</div>
+            <span className="material-icons-outlined text-4xl text-indigo-500 mb-4 block">flag_circle</span>
             <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               {t('home.mode1Title')}
             </h2>
@@ -46,7 +46,7 @@ export default function Home() {
         >
           <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 dark:bg-emerald-900/50 rounded-bl-[4rem] -mr-2 -mt-2 group-hover:scale-110 transition-transform" />
           <div className="relative">
-            <div className="text-3xl mb-4">📖</div>
+            <span className="material-icons-outlined text-4xl text-emerald-500 mb-4 block">auto_stories</span>
             <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               {t('home.mode2Title')}
             </h2>
