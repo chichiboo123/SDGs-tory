@@ -59,7 +59,12 @@
     "language": "Language",
     "help": "Help",
     "close": "Close",
-    "selected": "selected"
+    "selected": "selected",
+    "save": "Save",
+    "jsonOpen": "Open JSON",
+    "jsonBackup": "Backup JSON",
+    "invalidJson": "This is not a valid JSON file.",
+    "linkCopied": "Link copied"
   },
   "help": {
     "title": "How to Use",
@@ -70,22 +75,73 @@
     "step5": "5. Use the icons at the top to change theme and language."
   },
   "sdgs": {
-    "1": { "name": "No Poverty", "desc": "End poverty in all its forms everywhere" },
-    "2": { "name": "Zero Hunger", "desc": "End hunger, achieve food security and improved nutrition, and promote sustainable agriculture" },
-    "3": { "name": "Good Health and Well-being", "desc": "Ensure healthy lives and promote well-being for all at all ages" },
-    "4": { "name": "Quality Education", "desc": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all" },
-    "5": { "name": "Gender Equality", "desc": "Achieve gender equality and empower all women and girls" },
-    "6": { "name": "Clean Water and Sanitation", "desc": "Ensure availability and sustainable management of water and sanitation for all" },
-    "7": { "name": "Affordable and Clean Energy", "desc": "Ensure access to affordable, reliable, sustainable and modern energy for all" },
-    "8": { "name": "Decent Work and Economic Growth", "desc": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all" },
-    "9": { "name": "Industry, Innovation and Infrastructure", "desc": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation" },
-    "10": { "name": "Reduced Inequalities", "desc": "Reduce inequality within and among countries" },
-    "11": { "name": "Sustainable Cities and Communities", "desc": "Make cities and human settlements inclusive, safe, resilient and sustainable" },
-    "12": { "name": "Responsible Consumption and Production", "desc": "Ensure sustainable consumption and production patterns" },
-    "13": { "name": "Climate Action", "desc": "Take urgent action to combat climate change and its impacts" },
-    "14": { "name": "Life Below Water", "desc": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development" },
-    "15": { "name": "Life on Land", "desc": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss" },
-    "16": { "name": "Peace, Justice and Strong Institutions", "desc": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels" },
-    "17": { "name": "Partnerships for the Goals", "desc": "Strengthen the means of implementation and revitalize the global partnership for sustainable development" }
+    "1": {
+      "name": "No Poverty",
+      "desc": "End poverty in all its forms everywhere"
+    },
+    "2": {
+      "name": "Zero Hunger",
+      "desc": "End hunger, achieve food security and improved nutrition, and promote sustainable agriculture"
+    },
+    "3": {
+      "name": "Good Health and Well-being",
+      "desc": "Ensure healthy lives and promote well-being for all at all ages"
+    },
+    "4": {
+      "name": "Quality Education",
+      "desc": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all"
+    },
+    "5": {
+      "name": "Gender Equality",
+      "desc": "Achieve gender equality and empower all women and girls"
+    },
+    "6": {
+      "name": "Clean Water and Sanitation",
+      "desc": "Ensure availability and sustainable management of water and sanitation for all"
+    },
+    "7": {
+      "name": "Affordable and Clean Energy",
+      "desc": "Ensure access to affordable, reliable, sustainable and modern energy for all"
+    },
+    "8": {
+      "name": "Decent Work and Economic Growth",
+      "desc": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all"
+    },
+    "9": {
+      "name": "Industry, Innovation and Infrastructure",
+      "desc": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation"
+    },
+    "10": {
+      "name": "Reduced Inequalities",
+      "desc": "Reduce inequality within and among countries"
+    },
+    "11": {
+      "name": "Sustainable Cities and Communities",
+      "desc": "Make cities and human settlements inclusive, safe, resilient and sustainable"
+    },
+    "12": {
+      "name": "Responsible Consumption and Production",
+      "desc": "Ensure sustainable consumption and production patterns"
+    },
+    "13": {
+      "name": "Climate Action",
+      "desc": "Take urgent action to combat climate change and its impacts"
+    },
+    "14": {
+      "name": "Life Below Water",
+      "desc": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development"
+    },
+    "15": {
+      "name": "Life on Land",
+      "desc": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss"
+    },
+    "16": {
+      "name": "Peace, Justice and Strong Institutions",
+      "desc": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels"
+    },
+    "17": {
+      "name": "Partnerships for the Goals",
+      "desc": "Strengthen the means of implementation and revitalize the global partnership for sustainable development"
+    }
   }
 }

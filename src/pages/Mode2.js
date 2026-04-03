@@ -5,6 +5,7 @@ import SdgSelectorPopup from '../components/SdgSelectorPopup';
 import SdgConnectionList from '../components/SdgConnectionList';
 import FloatingActionButton from '../components/FloatingActionButton';
 import SDG_COLORS from '../data/sdgColors';
+import { buildMode2ExportText } from '../utils/exportText';
 
 function StoryPanel({ side, data, updateSide, t }) {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -114,17 +115,20 @@ function StoryPanel({ side, data, updateSide, t }) {
           )}
         </button>
 
-        {/* Selected goals with mini badges */}
+        {/* Selected goals with removable badges */}
         {data.selectedGoals.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5 mb-4">
             {data.selectedGoals.map((num) => (
-              <span
+              <button
                 key={num}
-                className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-white text-xs font-medium"
+                onClick={() => toggleGoal(num)}
+                className="inline-flex items-center gap-1 pl-2 pr-1 py-1 rounded-full text-white text-xs font-medium"
                 style={{ backgroundColor: SDG_COLORS[num] }}
+                title={t('common.close')}
               >
-                {num}. {t(`sdgs.${num}.name`)}
-              </span>
+                <span>{num}. {t(`sdgs.${num}.name`)}</span>
+                <span className="material-icons-outlined" style={{ fontSize: '14px' }}>close</span>
+              </button>
             ))}
           </div>
         )}
@@ -155,34 +159,7 @@ export default function Mode2() {
   const { t } = useTranslation();
   const { mode2, updateMode2Side } = useAppState();
 
-  const getExportText = () => {
-    let text = `[${t('mode2.original')}]\n`;
-    text += `${t('mode2.characters')}: ${mode2.left.characters}\n`;
-    text += `${t('mode2.settingTime')}: ${mode2.left.settingTime}\n`;
-    text += `${t('mode2.settingPlace')}: ${mode2.left.settingPlace}\n`;
-    text += `${t('mode2.summary')}: ${mode2.left.summary}\n\n`;
-    text += `--- ${t('mode2.writeStory')} ---\n${mode2.left.story}\n\n`;
-    if (mode2.left.selectedGoals.length > 0) {
-      text += `--- ${t('mode2.sdgConnect')} ---\n`;
-      mode2.left.selectedGoals.forEach((num) => {
-        text += `SDG ${num}. ${t(`sdgs.${num}.name`)}: ${mode2.left.connections[num] || ''}\n`;
-      });
-    }
-    text += `\n========================================\n\n`;
-    text += `[${t('mode2.rewrite')}]\n`;
-    text += `${t('mode2.characters')}: ${mode2.right.characters}\n`;
-    text += `${t('mode2.settingTime')}: ${mode2.right.settingTime}\n`;
-    text += `${t('mode2.settingPlace')}: ${mode2.right.settingPlace}\n`;
-    text += `${t('mode2.summary')}: ${mode2.right.summary}\n\n`;
-    text += `--- ${t('mode2.writeStory')} ---\n${mode2.right.story}\n\n`;
-    if (mode2.right.selectedGoals.length > 0) {
-      text += `--- ${t('mode2.sdgConnect')} ---\n`;
-      mode2.right.selectedGoals.forEach((num) => {
-        text += `SDG ${num}. ${t(`sdgs.${num}.name`)}: ${mode2.right.connections[num] || ''}\n`;
-      });
-    }
-    return text;
-  };
+  const getExportText = () => buildMode2ExportText(mode2, t);
 
   return (
     <div id="capture-area">
