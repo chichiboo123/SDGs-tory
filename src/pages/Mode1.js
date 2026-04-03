@@ -4,6 +4,8 @@ import { useAppState } from '../context/AppStateContext';
 import SDG_COLORS from '../data/sdgColors';
 import SdgConnectionList from '../components/SdgConnectionList';
 import FloatingActionButton from '../components/FloatingActionButton';
+import SdgIcon from '../components/SdgIcon';
+import { buildMode1ExportText } from '../utils/exportText';
 
 export default function Mode1() {
   const { t } = useTranslation();
@@ -22,23 +24,7 @@ export default function Mode1() {
     updateMode1({ connections: { ...mode1.connections, [num]: value } });
   };
 
-  const getExportText = () => {
-    let text = `[${t('mode1.title')}]\n\n`;
-    text += `${t('mode1.storyTitle')}: ${mode1.title}\n`;
-    text += `${t('mode1.characters')}: ${mode1.characters}\n`;
-    text += `${t('mode1.settingTime')}: ${mode1.settingTime}\n`;
-    text += `${t('mode1.settingPlace')}: ${mode1.settingPlace}\n`;
-    text += `${t('mode1.summary')}: ${mode1.summary}\n\n`;
-    text += `--- ${t('mode1.writeStory')} ---\n${mode1.story}\n\n`;
-    if (mode1.selectedGoals.length > 0) {
-      text += `--- ${t('mode1.sdgConnection')} ---\n`;
-      mode1.selectedGoals.forEach((num) => {
-        text += `\nSDG ${num}. ${t(`sdgs.${num}.name`)}\n`;
-        text += `${mode1.connections[num] || ''}\n`;
-      });
-    }
-    return text;
-  };
+  const getExportText = () => buildMode1ExportText(mode1, t);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6" id="capture-area">
@@ -54,10 +40,27 @@ export default function Mode1() {
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
           {t('mode1.selectGoalsDesc')}
         </p>
+
+        {mode1.selectedGoals.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {mode1.selectedGoals.map((num) => (
+              <button
+                key={num}
+                onClick={() => toggleGoal(num)}
+                className="inline-flex items-center gap-1 pl-2 pr-1 py-1 rounded-full text-white text-xs font-medium"
+                style={{ backgroundColor: SDG_COLORS[num] }}
+                title={t('common.close')}
+              >
+                <span>{num}. {t(`sdgs.${num}.name`)}</span>
+                <span className="material-icons-outlined" style={{ fontSize: '14px' }}>close</span>
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {goals.map((num) => {
             const selected = mode1.selectedGoals.includes(num);
-            const padded = String(num).padStart(2, '0');
             return (
               <button
                 key={num}
@@ -73,21 +76,7 @@ export default function Mode1() {
                     : {}
                 }
               >
-                <img
-                  src={`https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-${padded}.jpg`}
-                  alt={`SDG ${num}`}
-                  className="w-10 h-10 mx-auto rounded-lg mb-1 object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-                <div
-                  className="w-10 h-10 mx-auto rounded-lg items-center justify-center text-white font-bold text-sm mb-1 hidden"
-                  style={{ backgroundColor: SDG_COLORS[num] }}
-                >
-                  {num}
-                </div>
+                <SdgIcon num={num} size="sm" className="mx-auto mb-1" />
                 <p className="text-[10px] sm:text-xs font-medium text-gray-700 dark:text-gray-300 leading-tight truncate">
                   {t(`sdgs.${num}.name`)}
                 </p>

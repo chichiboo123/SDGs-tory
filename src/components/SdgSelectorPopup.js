@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import SDG_COLORS from '../data/sdgColors';
-
-const SDG_ICON_BASE = 'https://raw.githubusercontent.com/UNStats-SDGs/sdgs-data/master/images/en/TGG_Icon_Color_';
+import SdgIcon from './SdgIcon';
 
 export default function SdgSelectorPopup({ open, onClose, selectedGoals, onToggle }) {
   const { t } = useTranslation();
@@ -32,10 +31,30 @@ export default function SdgSelectorPopup({ open, onClose, selectedGoals, onToggl
           </button>
         </div>
 
+        {selectedGoals.length > 0 && (
+          <div className="mb-4">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              {t('common.selected')} ({selectedGoals.length})
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {selectedGoals.map((num) => (
+                <button
+                  key={num}
+                  onClick={() => onToggle(num)}
+                  className="inline-flex items-center gap-1 pl-2 pr-1 py-1 rounded-full text-white text-xs font-medium"
+                  style={{ backgroundColor: SDG_COLORS[num] }}
+                >
+                  <span>{num}. {t(`sdgs.${num}.name`)}</span>
+                  <span className="material-icons-outlined" style={{ fontSize: '14px' }}>close</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {goals.map((num) => {
             const selected = selectedGoals.includes(num);
-            const padded = String(num).padStart(2, '0');
             return (
               <button
                 key={num}
@@ -47,12 +66,7 @@ export default function SdgSelectorPopup({ open, onClose, selectedGoals, onToggl
                 }`}
                 style={selected ? { borderColor: SDG_COLORS[num], backgroundColor: SDG_COLORS[num] + '15' } : {}}
               >
-                <img
-                  src={`https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-${padded}.jpg`}
-                  alt={`SDG ${num}`}
-                  className="w-12 h-12 rounded-lg mb-2 object-cover"
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
+                <SdgIcon num={num} className="mb-2" />
                 <p className="text-xs font-medium text-gray-800 dark:text-gray-200 leading-tight">
                   {t(`sdgs.${num}.name`)}
                 </p>
