@@ -47,7 +47,16 @@
     "sdgConnect": "SDGs 연결",
     "sdgConnectionPlaceholder": "이 목표와 이야기의 연결점을 설명하세요"
   },
+  "dictionary": {
+    "title": "SDGs 사전",
+    "overviewTab": "SDGs란?",
+    "overviewLabel": "쉽게 알아보기",
+    "goalsListTitle": "17가지 목표 한눈에 보기",
+    "goalLabel": "목표",
+    "targetsLabel": "세부 목표 (UN 공식 타깃)"
+  },
   "common": {
+    "dictionary": "SDGs 사전",
     "back": "뒤로",
     "export": "내보내기",
     "exportTxt": "TXT 다운로드",
