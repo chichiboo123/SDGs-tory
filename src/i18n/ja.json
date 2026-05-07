@@ -47,7 +47,16 @@
     "sdgConnect": "SDGs接続",
     "sdgConnectionPlaceholder": "この目標と物語の接点を説明してください"
   },
+  "dictionary": {
+    "title": "SDGs辞典",
+    "overviewTab": "SDGsとは？",
+    "overviewLabel": "わかりやすく説明",
+    "goalsListTitle": "17の目標を一覧で見る",
+    "goalLabel": "目標",
+    "targetsLabel": "ターゲット（国連公式）"
+  },
   "common": {
+    "dictionary": "SDGs辞典",
     "back": "戻る",
     "export": "エクスポート",
     "exportTxt": "TXTダウンロード",

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { useAppState } from '../context/AppStateContext';
 import HelpModal from './HelpModal';
+import SdgsDictionaryModal from './SdgsDictionaryModal';
 
 const LANGUAGES = [
   { code: 'ko', label: 'KOR' },
@@ -20,6 +21,7 @@ export default function Header() {
   const [langOpen, setLangOpen] = useState(false);
   const [saveOpen, setSaveOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [dictOpen, setDictOpen] = useState(false);
   const langRef = useRef(null);
   const saveRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -103,6 +105,15 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Dictionary button */}
+            <button
+              onClick={() => setDictOpen(true)}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition-colors"
+              title={t('common.dictionary')}
+            >
+              <span className="material-icons-outlined text-xl">menu_book</span>
+            </button>
+
             {/* Theme toggle */}
             <button
               onClick={toggle}
@@ -194,6 +205,7 @@ export default function Header() {
       />
 
       <HelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
+      <SdgsDictionaryModal open={dictOpen} onClose={() => setDictOpen(false)} />
     </>
   );
 }

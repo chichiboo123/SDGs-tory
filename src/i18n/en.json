@@ -47,7 +47,16 @@
     "sdgConnect": "SDGs Connect",
     "sdgConnectionPlaceholder": "Explain the connection between this goal and your story"
   },
+  "dictionary": {
+    "title": "SDGs Dictionary",
+    "overviewTab": "What are SDGs?",
+    "overviewLabel": "Easy Explanation",
+    "goalsListTitle": "All 17 Goals at a Glance",
+    "goalLabel": "Goal",
+    "targetsLabel": "Targets (UN Official)"
+  },
   "common": {
+    "dictionary": "SDGs Dictionary",
     "back": "Back",
     "export": "Export",
     "exportTxt": "Download TXT",
